@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<pre>
+  Main idea of javascript:
+   1.Save the data 
+   2.Generate the html 
+   3.Make it interactive
+
+   in /scripts/amazon.js first save the data, means matching the HTML of the page but in JS. This is called a data structure. Usually uses a mix of array and objects (lists and values).
+
+   To generate the HTML, we can loop through the array
+      products.forEach((product) => {const html = `html code`});
+
+      then inside it , we can make slightly different changes by changing some spots using the array/objects we made before. In the code for ex change the img src="source" source link with
+      img src="${product.image}"
+      same for name, rating etc...
+
+      then combine the html together and 
+      put it on the web page (using the DOM)
+
+      select the container of the products earlier with the class and DOM 
+      document.querySelector('.js-products-grid').innerHTML = productsHTML;
+
+      then we can delete the arrays/values we selected from the HTML since its now in the javascript (productsHTML) file
+
+      btw the page will show the price like this 10,9 instead of 10.90 because
+      price cents = 1090
+      1090/100 = 10.9
+      Numbers got a special method to fix this (x / 100).toFixed(2)
+      .toFixed will convert a number into a string and we can tell him how many decimals we want
+
+</pre>
+
+<script></script>
+</body>
+</html>
