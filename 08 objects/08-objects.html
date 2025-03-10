@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects</title>
+</head>
+<body>
+  
+  <pre>
+    An object groups multiple values together 
+   .x can call the value associated with the property only so it product.name would show socks
+   
+
+   Objects makes our code more organizedm instead of creating a bunch of variables for the products values for ex, we can just group all these related values together 
+   let us group multiple values together
+   let us use/show multiple values together
+
+
+    JSON built-in-objects
+        javascript object notationm a syntax similar to js
+        all properties and strings must use "" doesnt support '' and functions
+        can be understood by most programming languages so we use it to send data between computers
+        and to store data
+
+        JSON.stringify(object) is a method that let us convert our object into json and into a string
+        JSON.parse() convert JSON into JS
+   
+
+   localStorage built-in-objects
+       save values more permanently (can refresh page without reset of variables)
+       localStorage.setItem('message','hello');
+       localStorage only support strings
+       localStorage.getItem(); gets a value out of localStorage
+
+       localStorage only support strings so we need to convert object into string
+       localStorage.setItem('score', JSON.stringify(score));
+       now we're able to get score from last time its still reset
+
+       to use score from localStorage we need to convert 
+       console.log(localStorage.getItem('score')); (string) back into an object with
+       console.log(JSON.parse(localStorage.getItem('score')));
+
+       localStorage.removeItem('score'); to reset (but it will give an error cuz score will be deleted from localStorage)
+       so we have to deal with it by giving score a default value
+        if (score === null) {
+          score = {
+            wins:0,
+            losses:0,
+            ties:0
+          }
+        }
+
+        null is falsy value so can it make it shorter  with !score instead
+         or even more simple
+
+          let score = JSON.parse(localStorage.getItem('score')) || {
+      wins:0,
+      losses:0,
+      ties:0
+    };
+</pre>
+
+  <script>
+    /*
+    const product = {
+      name: 'socks',
+      price: 1090
+    };
+    console.log(product);
+    console.log(product.name);
+    console.log(product.price);
+
+    product.name = 'cotton socks';  //change the value of name property
+    console.log(product);
+
+    product.newProperty = true;  //add a property/value to an object
+    console.log(product);
+
+    delete product.newProperty; //delete a property
+    console.log(product);
+    */
+
+    const product2 = {
+      name: 'shirt',
+      ['delivery-time']: '1 day',  //create a value with brackets to use properties that dont work with . or use variable and math
+
+      //nested object is also possible
+      rating: {
+        stars: 4.5,
+        count: 87
+      }, //create a function inside an object is also possible
+      fun: function function1 () {
+        console.log('function inside object');
+      }
+
+    };
+    console.log(product2.name);
+    console.log(product2['name']); //can also access object with bracket notation ['']
+    console.log(product2['delivery-time']);
+
+    console.log(product2.rating.count);
+    product2.fun();
+
+    console.log(typeof console.log); //console.log is an object with a function its called a method qnd also a built-in-objects (objects provided by the language)
+
+    console.log(JSON.stringify(product2));
+    
+    const jsonString = JSON.stringify(product2);
+    console.log(JSON.parse(jsonString));
+
+    //auto-boxing,  strings can also have properties and methods:
+    console.log('hello'.length);
+    console.log('hello'.toUpperCase());
+
+    //objects are references, its somewhere in computer's memory, can change value inside even if const
+    const object1 = {
+      message: 'hello'
+    };
+    const object2 = object1; //copy by reference
+
+    object1.message = 'Good Job!';  //object2 will be the same as object1
+    console.log(object1);
+    console.log(object2);
+
+    // cant compare objects, false, cuz it compares the references not the values inside
+    const object3 = {
+      message: 'Good Job'
+    };
+    console.log(object3 === object1);
+    console.log(object2 === object1);  //true cuz same reference
+
+    const object4 = {
+      message: 'Good Job',
+      price:799
+    };
+
+    //shortcut for objects
+    //const message = object4.message;
+    const { message, price } = object4;//shortcut is called destructuring, take properties out of object
+    console.log(message);
+    console.log(price);
+
+    //shorthand property
+    const object5 = {
+      //message: message   property and value are the same so type once
+      message,
+      //method:function function1() {
+       // console.log('method'); }    
+       //  //shorthand method
+      method() {
+        console.log('method');
+      }
+    };
+    
+    console.log(object5);
+
+    object5.method();
+
+
+  </script>
+</body>
+</html>

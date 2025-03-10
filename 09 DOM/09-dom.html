@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM - Documents Object model</title>
+</head>
+<body>
+
+  <!-- DOM is another built-in-object 
+   webpage and DOM are linked together
+   if we change its properties the webpage also change
+   DOM combines JS and HTML together so can have HTML inside JS
+   when HTML element is inside JS , the HTML element is converted into JS object
+   -->
+
+   <!-- document.querySelector()
+    let us get any element from the page and put it inside JS (only gets the first element)
+    can select other element by adding a class attribute
+    common practice is to start with js- on a class to know its used for js
+    
+    html element are JS object so we can save them into a variable , usually end variable name with Element to make it clear theres an HTML element inside variable
+    -->
+
+  <button>hello</button>
+  <button class="js-button">Second button</button>
+
+  <script>
+
+    console.log(document.querySelector('button').innerHTML);
+    document.querySelector('button')
+     .innerHTML = 'Changed';
+
+    const buttonElement = document.querySelector('.js-button');
+    console.log(buttonElement);
+
+/*
+    console.log(document.title);
+    document.title = 'Changed';
+
+    console.log(document.body);
+    console.log(typeof document.body);
+
+    console.log(document.body.innerHTML);
+    document.body.innerHTML =  '<button>Good job!</button>';
+    */
+
+    /*
+    document.body.innerHTML = 'hello';
+    document.title = 'Good job';
+    */
+  </script>
+</body>
+</html>

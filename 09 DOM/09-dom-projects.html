@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Projects</title>
+</head>
+<body>
+
+  <pre> to avoid issues when having spaces within text so its not really the same string value anymore
+   use innerText instead of innerHTML
+
+   for <input> element use .value since theres no text inside
+   type coercion whenever we get a value from the dom the value will be string, to do math we have to manually convert string into number with built in function:
+       Number()
+    let cost = Number(inputElement.value)
+
+    onkeydown="" runs javascript when pressing a key 
+    it comes with a special object called event
+     event.key
+    if (event.key === 'Enter'){}
+    event doesnt exist inside the functionso gotta add it into the function (parameter)
+
+    same as Number() converts strings into number we can do the same for the other way with
+       String()
+
+    if a string only contains a number, and we - * / it will be converted into a number
+    console.log('25' - 5);
+
+    window objects represents the browser
+    but doesnt need to be typed cuz java adds it automatically like window.document or window.console
+
+  </pre>
+  
+  <p>Youtube Subscribe Button</p>
+
+  <button onclick="subscribe();" class="js-subscribe-button">Subscribe</button>
+
+  <p>Amazon Shipping Calculator</p>
+  <input placeholder="Cost of order" class="js-cost-input" onkeydown="
+  handleCostKeydown(event);
+  ">
+
+  <button onclick="
+  calculateTotal();
+  ">Calculate</button>
+
+  <p class="js-total-cost"></p>
+
+  <script>
+
+    String(25)
+    console.log('25' - 5); //20
+    console.log('25' + 5); // 255
+
+    window.document
+    window.console.log('window');
+    window.alert
+
+    function handleCostKeydown(event) {
+      if (event.key ==='Enter') {
+        calculateTotal();
+      };
+    }
+
+    function calculateTotal() {
+      const inputElement = document.querySelector('.js-cost-input');
+      let cost = Number(inputElement.value);
+
+      if (cost < 40) {
+        cost = cost + 10;
+      }
+
+      document.querySelector('.js-total-cost')
+      .innerHTML = `$${cost}`;
+    }
+
+    function subscribe() {
+      const buttonElement = document.querySelector('.js-subscribe-button');
+
+      if (buttonElement.innerText === 'Subscribe') {
+        buttonElement.innerHTML = 'Subscribed';
+      } else {
+        buttonElement.innerHTML = 'Subscribe';
+      }
+    }
+  </script>
+</body>
+</html>
