@@ -36,8 +36,26 @@
       Numbers got a special method to fix this (x / 100).toFixed(2)
       .toFixed will convert a number into a string and we can tell him how many decimals we want
 
-</pre>
+      How to know which product to add (into cart)?
+        <B> Data attribute </B>
+      is just another html attribute
+      allows us to attach any information to an element
+         data-product-name="${product.name}"
+        syntax for a data attribute, name on the left, value on the right
+        have to start with data- then give it any name but make sure to separate with a - (kebab case)
 
+        dataset gives us all the data attributes attached to the element, so able to get the product name ex: 
+        const productName = button.dataset.productName; 
+        data name is converted from kebabcase to camel case
+
+        not good to use product name to find item in cart, cuz we might have items with same name.
+        to fix this:
+        give each product an id
+        id should be unique
+
+        data-product-id="${product.id} instead
+
+</pre>
 <script></script>
 </body>
 </html>
