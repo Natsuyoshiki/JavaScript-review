@@ -59,11 +59,10 @@
         Having multiples script files into 1 html can cause errors due to naming conflicts happening cuz we declared a variable with same name in different js files. That's the issue with script tags linked one at a time. 
         Can fix that with a feature of JS called Modules, it contains a variable INSIDE a file.
 
-        <b>Create a module.</b>
+              <b>Create a module.</b>
         1. Create a file 
         2. Don't load the file with script tag
-
-        <b>Get a variable out of a file</b>
+             <b>Get a variable out of a file</b>
         1.Add type="module" attribute   <!-- <script type="module" src="scripts/amazon.js"></script> -->
         2.Export <!-- export const cart = []; gets the var outside of cart.js--> 
         3.Import <!-- import {cart} from '../data/cart.js' --> import the var inside this file '..' is to get out of this folder, we need to locate the file of the var
@@ -71,17 +70,25 @@
 
         type="module" attribute 
         Let's this file get variables out of other files.
-
-        Rules for modules:
+               Rules for modules:
         1. put all imports at top of the files
         2. we need to open with live server
 
         imports got another syntax : import * as cartModule from ''
         cartModule.cart 
         cartModule.addToCart('id');
-
         this imports everything from a file into a single object
 
+             <b>External Libraries</b>
+        = code that is outside of our project (load js script code from internet to our project)
+        it let us share code, save time and avoid duplicating work
+
+        to use module and library together we can use ESM version
+        ESM = EcmaScript Module
+        (EcmaScript = Javascript)
+
+        import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
+        so instead of a link in script, we import it directly on top of file like the other variables
 </pre>
 <script></script>
 </body>
