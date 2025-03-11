@@ -55,6 +55,27 @@
 
         data-product-id="${product.id} instead
 
+        14 - modules
+        Having multiples script files into 1 html can cause errors due to naming conflicts happening cuz we declared a variable with same name in different js files. That's the issue with script tags linked one at a time. 
+        Can fix that with a feature of JS called Modules, it contains a variable INSIDE a file.
+
+        <b>Create a module.</b>
+        1. Create a file 
+        2. Don't load the file with script tag
+
+        <b>Get a variable out of a file</b>
+        1.Add type="module" attribute   <!-- <script type="module" src="scripts/amazon.js"></script> -->
+        2.Export <!-- export const cart = []; gets the var outside of cart.js--> 
+        3.Import <!-- import {cart} from '../data/cart.js' --> import the var inside this file '..' is to get out of this folder, we need to locate the file of the var
+        Cam also rename the var name when importing import {cart as myCart} from '../data/cart.js';
+
+        type="module" attribute 
+        Let's this file get variables out of other files.
+
+        Rules for modules:
+        1. put all imports at top of the files
+        2. we need to open with live server
+
 </pre>
 <script></script>
 </body>
